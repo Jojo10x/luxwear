@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { addToCart } from "../../app/features/cart/cartSlice";
 import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { heart } from 'ionicons/icons';
 
 const ProductCard = ({ title, productItem }) => {
   const dispatch = useDispatch();
@@ -31,7 +32,8 @@ const ProductCard = ({ title, productItem }) => {
         alt=""
       />
       <div className="product-like">
-        <ion-icon name="heart-outline"></ion-icon>
+        {/* <ion-icon name="heart-outline"></ion-icon> */}
+        <IonIcon icon={heart} />
       </div>
       <div className="product-details">
         <h3 onClick={() => handelClick()}>{productItem.productName}</h3>
