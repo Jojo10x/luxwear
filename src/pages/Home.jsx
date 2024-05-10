@@ -4,6 +4,7 @@ import Section from "../components/Section";
 import { products, discoutProducts } from "../utils/products";
 import SliderHome from "../components/Slider";
 import useWindowScrollToTop from "../hooks/useWindowScrollToTop";
+import PhotoGallery from "../Firebase/PhotoGallery";
 
 const Home = () => {
   const newArrivalData = products.filter(
@@ -15,6 +16,7 @@ const Home = () => {
     <Fragment>
       <SliderHome />
       <Wrapper />
+      <PhotoGallery/>
       <Section
         title="Big Discount"
         bgColor="#f6f9fc"
