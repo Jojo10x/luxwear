@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { storage } from '../Firebase-config';
 import { ref, uploadBytes} from 'firebase/storage';
 import { v4 } from "uuid";
+import "./panel.css"
 
 const AdminPanel = () => {
     const [img, setImg] = useState(null); 
