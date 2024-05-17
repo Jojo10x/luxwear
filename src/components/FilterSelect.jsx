@@ -7,6 +7,7 @@ const options = [
     // { value: "shirt", label: "Shirt" },
     { value: "hoodie", label: "Hoodie" },
     { value: "denim", label: "Denim" },
+    { value: "shorts", label: "Shorts" },
 ];
 
 const customStyles = {
