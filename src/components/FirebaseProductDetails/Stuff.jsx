@@ -31,11 +31,11 @@ export function useComingSoon() {
           const url = await getDownloadURL(val);
           try {
             const metadata = await getMetadata(val);
-            const { price, id,category } = metadata.customMetadata || {};
-            return { url, name: val.name, price, id,category };
+            const { price, id,category,shortDesc,description } = metadata.customMetadata || {};
+            return { url, name: val.name, price, id,category,shortDesc,description };
           } catch (error) {
             console.error("Error fetching metadata for image:", error);
-            return { url, name: val.name, price: "", id: "",category:" " };
+            return { url, name: val.name, price: "", id: "",category:" ",shortDesc:" ",description:" " };
           }
         });
         const imageURLs = await Promise.all(promises);
@@ -48,8 +48,8 @@ export function useComingSoon() {
               category: image.category,
               price: image.price,
               discount: 30,
-              shortDesc: "Bandana Vacation short-sleeve shirt",
-              description: "Bandana Vacation short-sleeve shirt",
+              shortDesc: image.shortDesc,
+              description: image.description,
               reviews: [
                 {
                   rating: 4.7,
