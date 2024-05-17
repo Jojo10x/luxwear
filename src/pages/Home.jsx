@@ -2,13 +2,13 @@ import { Fragment } from "react";
 import Wrapper from "../components/wrapper/Wrapper";
 import Section from "../components/Section";
 import { products, discoutProducts} from "../utils/products";
-import {useComingSoon} from '../components/FirebaseProductDetails/Stuff'
+import { useProductOptions} from '../components/FirebaseProductDetails/useProductOptions'
 import SliderHome from "../components/Slider";
 import useWindowScrollToTop from "../hooks/useWindowScrollToTop";
 // import PhotoGallery from "../Firebase/PhotoGallery";
 
 const Home = () => {
-  const comingsoon = useComingSoon();
+  const { comingSoon } = useProductOptions();
   const newArrivalData = products.filter(
     (item) => item.category === "hoodie" || item.category === "denim"
   );
@@ -33,7 +33,7 @@ const Home = () => {
       <Section
         title="Coming Soon"
         bgColor="white"
-        productItems={comingsoon}
+        productItems={comingSoon}
       />
     </Fragment>
   );

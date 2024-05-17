@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { storage } from '../Firebase-config';
 import { ref, uploadBytes} from 'firebase/storage';
 import CategorySelector from './CategorySelector';
-import { v4 } from "uuid";
+// import { v4 } from "uuid";
 import "./panel.css"
 
 const AdminPanel = () => {
