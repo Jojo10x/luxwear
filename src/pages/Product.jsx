@@ -30,23 +30,23 @@ const Product = () => {
   useEffect(() => {
   window.scrollTo(0, 0);
   setSelectedProduct(
-    products.filter((item) => parseInt(item.id) === parseInt(id))[0]
+    products.filter((item) => parseInt(item.id) === parseInt(id))[0] 
   );
 }, [id]);
 
 useEffect(() => {
   if (selectedProduct) {
-    setRelatedProducts(
-      products.filter(
-        (item) =>
-          item.category === selectedProduct.category &&
-          item.id !== selectedProduct.id
-      )
+    const filteredProducts = products.filter(
+      (item) =>
+        item.category === selectedProduct.category &&
+        item.id !== selectedProduct.id
     );
+    const combinedProducts = [...filteredProducts, ...comingsoon];
+    setRelatedProducts(combinedProducts);
   }
-}, [selectedProduct]);
+}, [selectedProduct, comingsoon]);
 
-  useWindowScrollToTop();
+useWindowScrollToTop();
 
   return (
     <Fragment>
