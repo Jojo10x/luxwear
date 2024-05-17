@@ -5,15 +5,37 @@ import { v4 } from "uuid";
 import "./panel.css"
 
 const AdminPanel = () => {
-    const [img, setImg] = useState(null); 
+    const [img, setImg] = useState(null);
+    const [imageName, setImageName] = useState('');
+    const [price, setPrice] = useState('');
+    const [category, setCategory] = useState('');
 
-    const handleUpload = (file) => {
-      if (file) {
-        const imgRef = ref(storage, `images/${v4()}`);
-        uploadBytes(imgRef, file).then((snapshot) => {
+    const generateRandomId = () => {
+        return Math.floor(Math.random() * (100 - 50 + 1)) + 50;
+      };
+  
+    const handleUpload = () => {
+      if (img) {
+        const imageId = generateRandomId();
+        const imgRef = ref(storage, `images/${imageName }`);
+
+        const metadata = {
+            contentType: img.type, 
+            customMetadata: {
+              imageName: imageName,
+              price: price,
+              category: category,
+              id: imageId.toString()
+            }
+          };
+
+        uploadBytes(imgRef, img,metadata).then((snapshot) => {
           console.log("Uploaded successfully:", snapshot);
-          alert("Uploaded successfully")
-          setImg(null); 
+          alert("Uploaded successfully");
+          setImg(null);
+          setImageName('');
+          setPrice('');
+          setCategory('');
         }).catch((error) => {
           console.error("Error uploading image:", error);
         });
@@ -24,11 +46,29 @@ const AdminPanel = () => {
       <div className="admin-panel">
         <h2>Admin Panel</h2>
         <div className="upload-section">
-          <input type="file" onChange={(e) => setImg(e.target.files[0])} />
-          <button onClick={() => handleUpload(img)}>Upload</button>
+          <input type="file" onChange={(e) => setImg(e.target.files[0])} />       
+          <button onClick={handleUpload}>Upload</button>
         </div>
+        <input 
+            type="text" 
+            placeholder="Enter Image Name" 
+            value={imageName} 
+            onChange={(e) => setImageName(e.target.value)} 
+          />
+            <input 
+        type="text" 
+        placeholder="Enter Price" 
+        value={price} 
+        onChange={(e) => setPrice(e.target.value)} 
+      />
+      <input 
+        type="text" 
+        placeholder="Enter Category" 
+        value={category} 
+        onChange={(e) => setCategory(e.target.value)} 
+      />
       </div>
     );
-  }
-
+  };
+  
 export default AdminPanel;
