@@ -12,6 +12,7 @@ const AdminPanel = () => {
   const [category, setCategory] = useState("");
   const [shortDesc, setShortDesc] = useState("");
   const [description, setDescription] = useState("");
+  const [selectedDatabase, setSelectedDatabase] = useState("comingSoon");
 
   const generateRandomId = () => {
     return Math.floor(Math.random() * (100 - 50 + 1)) + 50;
@@ -20,7 +21,25 @@ const AdminPanel = () => {
   const handleUpload = () => {
     if (img) {
       const imageId = generateRandomId();
-      const imgRef = ref(storage, `images/${imageName}`);
+      let imgRef;
+
+      switch (selectedDatabase) {
+        case "comingSoon":
+          imgRef = ref(storage, `images/${imageName}`);
+          break;
+        case "bestSales":
+          imgRef = ref(storage, `imagebest/${imageName}`);
+          break;
+        case "newArrivalData":
+          imgRef = ref(storage, `imagesnew/${imageName}`);
+          break;
+        case "discountProducts":
+          imgRef = ref(storage, `imagesdisount/${imageName}`);
+          break;
+        default:
+          imgRef = ref(storage, `images/${imageName}`); // Default to 'images' database
+          break;
+      }
 
       const metadata = {
         contentType: img.type,
@@ -56,8 +75,16 @@ const AdminPanel = () => {
       <h2>Admin Panel</h2>
       <div className="upload-section">
         <input type="file" onChange={(e) => setImg(e.target.files[0])} />
+        <select onChange={(e) => setSelectedDatabase(e.target.value)}>
+          <option value="comingSoon">Upload to Coming Soon</option>
+          <option value="bestSales">Upload to Best Sales</option>
+          <option value="newArrivalData">Upload to New Arrivals</option>
+          <option value="discountProducts">Upload to Discount Products</option>
+        </select>
+        <p>Selected Category: {selectedDatabase}</p>
         <button onClick={handleUpload}>Upload</button>
       </div>
+
       <input
         type="text"
         placeholder="Enter Image Name"
@@ -65,7 +92,6 @@ const AdminPanel = () => {
         onChange={(e) => setImageName(e.target.value)}
       />
 
-     
       <input
         type="text"
         placeholder="Enter Price"
@@ -78,7 +104,7 @@ const AdminPanel = () => {
         value={shortDesc}
         onChange={(e) => setShortDesc(e.target.value)}
       />
-     
+
       <input
         type="text"
         placeholder="Enter description"
