@@ -8,6 +8,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 const Home = lazy(() => import("./pages/Home"));
 const AdminPanel = lazy(() => import("./Firebase/AdminPanel"));
+const EditAdminPanel = lazy(() => import("./Firebase/EditAdminPanel"));
 const Shop = lazy(() => import("./pages/Shop"));
 const Cart = lazy(() => import("./pages/Cart"));
 const Product = lazy(() => import("./pages/Product"));
@@ -33,6 +34,7 @@ function App() {
           <Route path="/shop/:id" element={<Product />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/admin" element={<AdminPanel />} />
+          <Route path="/edit" element={<EditAdminPanel />} />
         </Routes>
         <Footer />
       </Router>
