@@ -5,10 +5,10 @@ import {useComingSoon} from '../components/FirebaseProductDetails/Stuff'
 const options = [
     { value: "shirt", label: "Shirt" },
     { value: "jacket", label: "Jacket" },
-    // { value: "shirt", label: "Shirt" },
+    { value: "coat", label: "Coat" },
     { value: "hoodie", label: "Hoodie" },
     { value: "denim", label: "Denim" },
-    { value: "shorts", label: "Shorts" },
+    { value: "short", label: "Shorts" },
 ];
 
 const customStyles = {
