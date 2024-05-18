@@ -4,31 +4,53 @@ import { Container } from "react-bootstrap";
 import ShopList from "../components/ShopList";
 import { products } from "../utils/products";
 import { useParams } from "react-router-dom";
+import {useProductOptions} from '../components/FirebaseProductDetails/useProductOptions'
 import ProductDetails from "../components/ProductDetails/ProductDetails";
 import ProductReviews from "../components/ProductReviews/ProductReviews";
 import useWindowScrollToTop from "../hooks/useWindowScrollToTop";
 
 const Product = () => {
+  const { comingSoon, discountProducts, newArrivalData, bestSales } = useProductOptions();
   const { id } = useParams();
-  const [selectedProduct, setSelectedProduct] = useState(
-    products.filter((item) => parseInt(item.id) === parseInt(id))[0]
-  );
-  const [relatedProducts, setRelatedProducts] = useState([]);
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    setSelectedProduct(
-      products.filter((item) => parseInt(item.id) === parseInt(id))[0]
-    );
-    setRelatedProducts(
-      products.filter(
-        (item) =>
-          item.category === selectedProduct?.category &&
-          item.id !== selectedProduct?.id
-      )
-    );
-  }, [selectedProduct, id]);
+  const [selectedProduct, setSelectedProduct] = useState(null); 
 
-  useWindowScrollToTop();
+  useEffect(() => {
+    const findProductById = (arr, id) => arr.find(item => parseInt(item.id) === parseInt(id));
+
+    const selectedProduct = 
+      findProductById(comingSoon, id) ||
+      findProductById(discountProducts, id) ||
+      findProductById(newArrivalData, id) ||
+      findProductById(bestSales, id);
+
+    setSelectedProduct(selectedProduct);
+  }, [comingSoon, discountProducts, newArrivalData, bestSales, id]);
+  
+  
+
+  console.log("selectedProduct:",selectedProduct);
+  const [relatedProducts, setRelatedProducts] = useState([]);
+
+  useEffect(() => {
+  window.scrollTo(0, 0);
+  setSelectedProduct(
+    products.filter((item) => parseInt(item.id) === parseInt(id))[0] 
+  );
+}, [id]);
+
+useEffect(() => {
+  if (selectedProduct) {
+    const filteredProducts = products.filter(
+      (item) =>
+        item.category === selectedProduct.category &&
+        item.id !== selectedProduct.id
+    );
+    const combinedProducts = [...filteredProducts, ...comingSoon];
+    setRelatedProducts(combinedProducts);
+  }
+}, [selectedProduct, comingSoon]);
+
+useWindowScrollToTop();
 
   return (
     <Fragment>

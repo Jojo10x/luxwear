@@ -1,33 +1,42 @@
 import { Fragment } from "react";
 import Wrapper from "../components/wrapper/Wrapper";
 import Section from "../components/Section";
-import { products, discoutProducts } from "../utils/products";
+// import { products, discoutProducts} from "../utils/products";
+import { useProductOptions} from '../components/FirebaseProductDetails/useProductOptions'
 import SliderHome from "../components/Slider";
 import useWindowScrollToTop from "../hooks/useWindowScrollToTop";
-import PhotoGallery from "../Firebase/PhotoGallery";
+// import PhotoGallery from "../Firebase/PhotoGallery";
 
 const Home = () => {
-  const newArrivalData = products.filter(
-    (item) => item.category === "hoodie" || item.category === "denim"
+  const { comingSoon,bestSales,newArrivalData,discountProducts } = useProductOptions();
+  const newArrivalD = newArrivalData.filter(
+    (item) => item.category === "hoodie" || item.category === "coat"
   );
-  const bestSales = products.filter((item) => item.category === "shirt");
+  const best = bestSales.filter((item) => item.category === "shirt"|| item.category === "denim");
+
+
   useWindowScrollToTop();
   return (
     <Fragment>
       <SliderHome />
       <Wrapper />
-      <PhotoGallery/>
       <Section
         title="Big Discount"
         bgColor="#f6f9fc"
-        productItems={discoutProducts}
+        productItems={discountProducts}
       />
       <Section
         title="New Arrivals"
         bgColor="white"
-        productItems={newArrivalData}
+        productItems={newArrivalD}
       />
-      <Section title="Best Sales" bgColor="#f6f9fc" productItems={bestSales} />
+      <Section title="Best Sales" bgColor="#f6f9fc" productItems={best} />
+      {/* <PhotoGallery/> */}
+      <Section
+        title="Coming Soon"
+        bgColor="white"
+        productItems={comingSoon}
+      />
     </Fragment>
   );
 };

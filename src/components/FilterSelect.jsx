@@ -1,12 +1,14 @@
 import Select from 'react-select';
 import { products } from '../utils/products';
+import {useComingSoon} from '../components/FirebaseProductDetails/Stuff'
 
 const options = [
     { value: "shirt", label: "Shirt" },
     { value: "jacket", label: "Jacket" },
-    // { value: "shirt", label: "Shirt" },
+    { value: "coat", label: "Coat" },
     { value: "hoodie", label: "Hoodie" },
     { value: "denim", label: "Denim" },
+    { value: "short", label: "Shorts" },
 ];
 
 const customStyles = {
@@ -36,8 +38,9 @@ const customStyles = {
 };
 
 const FilterSelect = ({setFilterList}) => {
+    const comingsoon = useComingSoon();
     const handleChange = (selectedOption)=> {
-        setFilterList(products.filter(item => item.category ===selectedOption.value))
+        setFilterList(products.filter(item => item.category ===selectedOption.value).concat(comingsoon))
     }
     return (
     <Select

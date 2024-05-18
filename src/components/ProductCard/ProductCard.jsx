@@ -38,12 +38,12 @@ const ProductCard = ({ title, productItem }) => {
       <div className="product-details">
         <h3 onClick={() => handelClick()}>{productItem.productName}</h3>
         <div className="rate">
-    <FontAwesomeIcon icon={faStar} className="golden-star" />
-    <FontAwesomeIcon icon={faStar} className="golden-star" />
-    <FontAwesomeIcon icon={faStar} className="golden-star" />
-    <FontAwesomeIcon icon={faStar} className="golden-star" />
-    <FontAwesomeIcon icon={faStar} className="golden-star" />
-</div>
+          <FontAwesomeIcon icon={faStar} className="golden-star" />
+          <FontAwesomeIcon icon={faStar} className="golden-star" />
+          <FontAwesomeIcon icon={faStar} className="golden-star" />
+          <FontAwesomeIcon icon={faStar} className="golden-star" />
+          <FontAwesomeIcon icon={faStar} className="golden-star" />
+        </div>
         <div className="price">
           <h4>${productItem.price}</h4>
           <button
