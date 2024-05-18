@@ -27,11 +27,11 @@ const fetchProducts = async (categoryPath) => {
       const url = await getDownloadURL(val);
       try {
         const metadata = await getMetadata(val);
-        const { price, id,category,shortDesc,description } = metadata.customMetadata || {};
-        return { url, name: val.name, price, id,category,shortDesc,description };
+        const { price,id,category,shortDesc,description,imageName } = metadata.customMetadata || {};
+        return { url, imageName, price, id,category,shortDesc,description };
       } catch (error) {
         console.error("Error fetching metadata for image:", error);
-        return { url, name: val.name, price: "", id: "", category: " ", shortDesc: " ", description: " " };
+        return { url, imageName:" ", price: "", id: "", category: " ", shortDesc: " ", description: " " };
       }
     });
     return await Promise.all(promises);
@@ -44,7 +44,7 @@ const fetchProducts = async (categoryPath) => {
 const processProducts = (imageURLs) => {
   return imageURLs.map((image) => ({
     id: image.id,
-    productName: image.name,
+    productName: image.imageName,
     imgUrl: image.url,
     category: image.category,
     price: image.price,
