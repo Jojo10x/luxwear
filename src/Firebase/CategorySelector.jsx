@@ -6,11 +6,12 @@ const CategorySelector = ({ category, setCategory }) => {
       onChange={(e) => setCategory(e.target.value)}
     >
       <option value="">Select Category</option>
-      <option value="Shirt">Shirt</option>
-      <option value="Jacket">Jacket</option>
-      <option value="Hoodie">Hoodie</option>
-      <option value="Denim">Denim</option>
-      <option value="Shorts">Shorts</option>
+      <option value="shirt">Shirts</option>
+      <option value="jacket">Jackets</option>
+      <option value="hoodie">Hoodies</option>
+      <option value="denim">Denim</option>
+      <option value="short">Shorts</option>
+      <option value="coat">Coats</option>
     </select>
   );
 };
