@@ -1,41 +1,86 @@
 .admin-panel {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-    margin-top: 100px;
-    margin-bottom: 100px;
-  }
-  
-  .admin-panel h2 {
-    margin-bottom: 20px;
-    text-align: center;
-    color: #333;
-  }
-  
-  .upload-section {
-    display: flex;
-    align-items: center;
-  }
-  
-  .upload-section input[type="file"] {
-    flex: 1;
-    padding: 10px;
-    margin-right: 10px;
-  }
-  
-  .upload-section button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .upload-section button:hover {
-    background-color: #0056b3;
-  }
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.admin-panel h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.upload-section {
+  margin-bottom: 20px;
+}
+
+
+.upload-section button {
+  margin-right: 10px;
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.upload-section button:hover {
+  background-color: #0056b3;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.category-selector {
+  margin-bottom: 10px;
+}
+
+.category-selector select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.category-selector p {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #666;
+}
+
+.upload-section {
+  margin-bottom: 20px;
+}
+
+
+
+.upload-section button {
+  margin-right: 10px;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.upload-section button:hover {
+  background-color: #45a049;
+}
+
+.upload-section button:last-child {
+  margin-right: 0; /* Remove margin-right for the last button */
+}
+
   

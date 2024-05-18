@@ -4,23 +4,27 @@ import { Container } from "react-bootstrap";
 import ShopList from "../components/ShopList";
 import { products } from "../utils/products";
 import { useParams } from "react-router-dom";
-import {useComingSoon} from '../components/FirebaseProductDetails/Stuff'
+import {useProductOptions} from '../components/FirebaseProductDetails/useProductOptions'
 import ProductDetails from "../components/ProductDetails/ProductDetails";
 import ProductReviews from "../components/ProductReviews/ProductReviews";
 import useWindowScrollToTop from "../hooks/useWindowScrollToTop";
 
 const Product = () => {
-  const comingsoon = useComingSoon();
+  const { comingSoon, discountProducts, newArrivalData, bestSales } = useProductOptions();
   const { id } = useParams();
   const [selectedProduct, setSelectedProduct] = useState(null); 
 
   useEffect(() => {
     const findProductById = (arr, id) => arr.find(item => parseInt(item.id) === parseInt(id));
-  
-    const selectedProduct = findProductById(products, id) || findProductById(comingsoon, id);
-  
+
+    const selectedProduct = 
+      findProductById(comingSoon, id) ||
+      findProductById(discountProducts, id) ||
+      findProductById(newArrivalData, id) ||
+      findProductById(bestSales, id);
+
     setSelectedProduct(selectedProduct);
-  }, [comingsoon, id]);
+  }, [comingSoon, discountProducts, newArrivalData, bestSales, id]);
   
   
 
@@ -41,10 +45,10 @@ useEffect(() => {
         item.category === selectedProduct.category &&
         item.id !== selectedProduct.id
     );
-    const combinedProducts = [...filteredProducts, ...comingsoon];
+    const combinedProducts = [...filteredProducts, ...comingSoon];
     setRelatedProducts(combinedProducts);
   }
-}, [selectedProduct, comingsoon]);
+}, [selectedProduct, comingSoon]);
 
 useWindowScrollToTop();
 
