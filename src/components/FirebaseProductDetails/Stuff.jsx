@@ -81,7 +81,7 @@ export const useDiscountProducts = () => {
 
   useEffect(() => {
     const fetchDiscountProducts = async () => {
-      const data = await fetchProducts("imagesdiscount");
+      const data = await fetchProducts("imagesdisount");
       const processedData = processProducts(data);
       setDiscountProducts(processedData.length > 0 ? processedData : [defaultProduct]);
     };
