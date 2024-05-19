@@ -1,4 +1,4 @@
-import { useComingSoon,useDiscountProducts,useNewArrivalData,useBestSales } from "./Stuff";
+import { useComingSoon,useDiscountProducts,useNewArrivalData,useBestSales } from "./ProductDataHooks";
 
 export const useProductOptions = () => {
     const comingSoon = useComingSoon();

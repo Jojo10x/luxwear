@@ -1,6 +1,6 @@
 import Select from 'react-select';
 import { products } from '../utils/products';
-import {useComingSoon} from '../components/FirebaseProductDetails/Stuff'
+import {useComingSoon} from '../components/FirebaseProductDetails/ProductDataHooks'
 
 const options = [
     { value: "shirt", label: "Shirt" },
