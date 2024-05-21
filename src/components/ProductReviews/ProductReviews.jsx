@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Container } from "react-bootstrap";
 import "./product-review.css";
-import RandomReview from './randomReview';
+import RandomReview from './RandomReview';
 import reviews from './reviews.json';
 
 const ProductReviews = ({ selectedProduct }) => {
