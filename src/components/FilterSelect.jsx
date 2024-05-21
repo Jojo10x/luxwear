@@ -38,9 +38,9 @@ const customStyles = {
 };
 
 const FilterSelect = ({setFilterList}) => {
-    const comingsoon = useComingSoon();
     const handleChange = (selectedOption)=> {
-        setFilterList(products.filter(item => item.category ===selectedOption.value).concat(comingsoon))
+        setFilterList(products.filter(item => item.category ===selectedOption.value))
+        console.log(products.filter(item => item.category===selectedOption.value))
     }
     return (
     <Select

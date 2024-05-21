@@ -1,0 +1,55 @@
+[
+    {
+      "name": "Alice Smith",
+      "rating": 5,
+      "text": "Absolutely love this product! The material is high-quality and it fits perfectly. I got so many compliments when I wore it."
+    },
+    {
+      "name": "Bob Johnson",
+      "rating": 4,
+      "text": "Very good item with great features. It works well for my needs, but there are a few areas where it could be improved."
+    },
+    {
+      "name": "Charlie Brown",
+      "rating": 3,
+      "text": "The product is decent. It does what it says, but I didn't find it particularly outstanding. It's just okay."
+    },
+    {
+      "name": "Diana Prince",
+      "rating": 2,
+      "text": "I was disappointed with this item. The fabric feels cheap and it doesn’t meet my expectations. It looks good, but that's about it."
+    },
+    {
+      "name": "Eve Adams",
+      "rating": 1,
+      "text": "Terrible quality. The item started showing wear after just one use and the stitches are coming undone. Would not recommend."
+    },
+    {
+      "name": "Frank Miller",
+      "rating": 5,
+      "text": "This is perfect for my needs. It’s comfortable, fits well, and looks great. The design is also very practical."
+    },
+    {
+      "name": "Grace Lee",
+      "rating": 4,
+      "text": "I love this item! It is perfect for casual wear. My only issue is that it runs a bit small, so I had to exchange for a bigger size."
+    },
+    {
+      "name": "Hannah White",
+      "rating": 3,
+      "text": "The product is beautiful, but the fabric is very delicate and snags easily. It’s a bit high-maintenance for everyday wear."
+    },
+    {
+      "name": "Ian Black",
+      "rating": 2,
+      "text": "Not impressed with this item. The fit is off and the material is stiff. It also shrank after washing."
+    },
+    {
+      "name": "Jane Doe",
+      "rating": 1,
+      "text": "Worst purchase ever. The item looks nothing like the picture and the sizing is way off. Very disappointed."
+    }
+  ]
+  
+  
+  
