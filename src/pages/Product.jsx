@@ -45,10 +45,10 @@ useEffect(() => {
         item.category === selectedProduct.category &&
         item.id !== selectedProduct.id
     );
-    const combinedProducts = [...filteredProducts, ...comingSoon];
+    const combinedProducts = [...filteredProducts];
     setRelatedProducts(combinedProducts);
   }
-}, [selectedProduct, comingSoon]);
+}, [selectedProduct]);
 
 useWindowScrollToTop();
 
