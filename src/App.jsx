@@ -1,11 +1,12 @@
 import { lazy, Suspense } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import Loader from "./components/Loader/Loader";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+const Login = lazy(() => import("./pages/Login"));
 const Home = lazy(() => import("./pages/Home"));
 const AdminPanel = lazy(() => import("./Firebase/AdminPanel"));
 const EditAdminPanel = lazy(() => import("./Firebase/EditAdminPanel"));
@@ -35,7 +36,8 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/admin" element={<AdminPanel />} />
           <Route path="/edit" element={<EditAdminPanel />} />
-          <Route path="*" element={<Navigate to="/admin" />} />
+          <Route path="/login" element={<Login />} />
+          
         </Routes>
         <Footer />
       </Router>
