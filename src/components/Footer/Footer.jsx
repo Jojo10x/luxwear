@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Col, Container, Row } from "react-bootstrap"
 import { IonIcon } from '@ionic/react';
 import { bag} from 'ionicons/icons';
+import PTlogo from '../../assets/pt.svg'
 
 const Footer = () => {
   return (
@@ -58,6 +59,10 @@ const Footer = () => {
           </Col>
         </Row>
       </Container>
+      <div className="separator"></div>
+      <div className="PTlogo">
+      <a href="https://pixeltochka.tech/" target="_blank">Powered by<img src={PTlogo} alt="" /></a>
+      </div>
     </footer>
   );
 };

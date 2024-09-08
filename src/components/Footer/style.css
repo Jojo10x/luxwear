@@ -59,6 +59,19 @@ footer li {
   margin-bottom: 1rem;
   border-top: 1px solid rgba(102, 102, 102, 0.6);
 }
+.PTlogo{
+  text-align: center;
+  img{
+    width: 2rem;
+  }
+  a{
+    color: white;
+  }
+  a:hover{
+    color: grey;
+  }
+}
+
 
 @keyframes gradient {
 0% {
